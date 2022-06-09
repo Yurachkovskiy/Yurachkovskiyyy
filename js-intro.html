@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Знайомство з JS Юрачковський</title>
+    <script>
+    	var photosCount = 5// поміщаємо у змінні кількість фото
+    	var currentPhotoIndex = 1; //поміщаємо у змінну штучний номер 1 для поточної фотки
+    	function showNextPhoto() { // відповідає за перемикання фото
+    		currentPhotoIndex++;//відповідає за нарощення номеру фото при кліканні
+    		if (currentPhotoIndex >=photosCount)
+    		    currentPhotoIndex= 1; //якщо доходимо до 5 фотки то починаємо знов з 1
+    		var element_photo = document.
+    		getElementById("current_photo");
+    		element_photo.src= "photo"+
+    		currentPhotoIndex+".jpg";//змінюємо номер поточної картинки
+
+    	}
+    	function add_next_photo(){
+    		var new_image = document.createElement("img");//створи об'єкт із назвою image
+    		currentPhotoIndex ++;
+    		if (currentPhotoIndex > photosCount)
+    		    currentPhotoIndex= 1; //якщо доходимо до 5 фотки то починаємо знов з 1
+    		new_image.src= "photo"+currentPhotoIndex+".jpg";//змінюємо номер поточної картинки
+    		var container_element=document.getElementById("gallery_photo");
+    		container_element.appendChild(new_image) ;
+    		//додай нову картинку
+
+    	}
+    </script>
+</head>
+<body>
+	<div id="gallery_photo">
+		<img id="current_photo" src="photo1.jpg" />
+	</div>
+	<button onclick="showNextPhoto()">Наступне фото</button>
+	<button onclick="add_next_photo()">Додати фото</button>
+</body>
+</html>
